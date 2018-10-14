@@ -24,6 +24,7 @@ public class JwtService {
             return JWT.create()
                     .withIssuer("auth0")
                     .withClaim("iv-user", "sburz")
+                    .withArrayClaim("roles", new String[]{"admin", "user"})
                     .sign(algorithm);
         } catch (JWTCreationException ex) {
             System.out.println("could not create token: " + ex.getMessage());
